@@ -1,0 +1,33 @@
+test.html<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>nude test</title>
+	<style>
+		img {
+			/* width: 20px; */
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<img src="*file*" id="img" alt=""/>
+	<p id="result"></p>
+	<button id="verify">Verificar</button>
+	<script src="/noworker.nude.min.js"></script>
+	<script>
+			document.querySelector('#verify').addEventListener('click', () => {
+				document.querySelector('#img').style.display = 'block'
+				nude.load('img')
+				nude.scan(res => {
+					if(!res)
+						document.querySelector('#result').innerText = false
+					else
+						document.querySelector('#result').innerText = true
+					document.querySelector('#img').style.display = 'none'
+				})
+			})
+	</script>
+</body>
+</html>

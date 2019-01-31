@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Index</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: arial, sans-serif;
+		}
+		body, html {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			width: 70%;
+			padding: 1rem 2rem;
+			border: #333 solid .7px;
+			border-radius: 10px;
+			margin: 3rem auto;
+		}
+
+		form h1{
+			text-align: center;
+		}
+
+		form input {
+			display: none;
+		}
+		
+		form button {
+			margin: .5rem .3rem;
+			padding: .7rem;
+			border-radius: 5px;
+			border: none;
+			box-shadow: #9a9a9a 0 0 2px;
+			cursor: pointer;
+			color: #fff;
+			background: #99acca;
+		}
+
+		form button:hover {
+			opacity:.7;
+		}
+
+		form a {
+			margin: .7rem .3rem;
+			box-shadow: #32acac 0 0 2px;
+			width: 10rem;
+			padding: .7rem .9rem;
+			text-align: center;
+			border-radius: 5px;
+			background: #32acbc;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		form a:hover {
+			background: #aaa;
+			box-shadow: #333 0 0 2px;
+		}
+	</style>
+</head>
+<body>
+	<form action="/upload" method="post" enctype="multipart/form-data">
+		<h1>Nudity Test</h1>
+		<a id="choose">Choose a Image</a>
+		<input name="file" type="file" placeholder="Upload" />
+		<button>SEND</button>
+	</form>
+	<script defer>
+		let form = document.querySelector('form')
+		let input = document.querySelector('input')
+		
+		document.querySelector('#choose').addEventListener('click', () => input.click())
+
+		form.addEventListener('submit', () => {
+			document.querySelector('button').disabled = true
+		})
+	</script>
+</body>
+</html>
